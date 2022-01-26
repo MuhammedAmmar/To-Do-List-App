@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="min_padding">4dp</dimen>
+    <dimen name="small_padding">6dp</dimen>
+    <dimen name="normal_padding">8dp</dimen>
+    <dimen name="intermediate_padding">16dp</dimen>
+    <dimen name="medium_padding">16dp</dimen>
+    <dimen name="large_padding">21dp</dimen>
+
+    <dimen name="min_margin">4dp</dimen>
+    <dimen name="small_margin">6dp</dimen>
+    <dimen name="normal_margin">8dp</dimen>
+    <dimen name="intermediate_margin">16dp</dimen>
+    <dimen name="medium_margin">16dp</dimen>
+    <dimen name="large_margin">21dp</dimen>
+    <dimen name="spacing_margin">80dp</dimen>
+
+    <dimen name="fab_custom_size">60dp</dimen>
+    <dimen name="fab_image_size">36dp</dimen>
+
+    <dimen name="normal_radius">16dp</dimen>
+
+
+    <dimen name="small_text_size">16sp</dimen>
+    <dimen name="normal_text_size">18sp</dimen>
+    <dimen name="medium_text_size">21sp</dimen>
+    <dimen name="large_text_size">50sp</dimen>
+
+</resources>

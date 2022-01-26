@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <data>
+                <variable
+                    name="viewModel"
+                    type="com.moworks.todolist.timer.TimerViewModel" />
+                <variable
+                    name="fragment"
+                    type="com.moworks.todolist.timer.PomodoroFragment" />
+        </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".timer.PomodoroFragment">
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/indicator"
+                    style="@style/Widget.MaterialComponents.CircularProgressIndicator.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:indicatorColor="@color/colorOnSecondary"
+                    app:indicatorSize="320dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2"
+                    app:trackColor="@color/primaryColor"
+                    app:trackThickness="10dp" />
+
+                <TextView
+                    android:id="@+id/timer_tv"
+                    android:layout_width="230dp"
+                    android:layout_height="110dp"
+                    android:gravity="center"
+                    android:text="@string/initial_timer"
+                    android:textColor="@color/colorOnSecondary"
+                    android:textSize="@dimen/large_text_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/indicator"
+                    app:layout_constraintEnd_toEndOf="@+id/indicator"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/indicator"
+                    app:layout_constraintTop_toTopOf="@+id/indicator"
+                    app:layout_constraintVertical_bias="0.4" />
+
+                <ImageButton
+                    android:id="@+id/play_pause"
+                    android:layout_width="120dp"
+                    android:layout_height="90dp"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{()->viewModel.triggerTimer()}"
+                    app:layout_constraintEnd_toEndOf="@+id/indicator"
+                    app:layout_constraintStart_toStartOf="@+id/indicator"
+                    app:layout_constraintTop_toBottomOf="@+id/timer_tv"
+                    app:srcCompat="@drawable/baseline_play_arrow_white_48"
+                    app:timer_state="@{viewModel.isPlaying()}"
+                    app:tint="@color/colorOnSecondary" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:onClick="@{()->viewModel.resetTimer()}"
+                    android:text="@string/reset_the_timer"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorOnSecondary"
+                    android:textSize="@dimen/normal_text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/indicator" />
+
+                <ImageButton
+                    android:id="@+id/start_break"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/touch_feedback"
+                    android:onClick="@{()->fragment.onStartBreak()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/pause_timer"
+                    app:layout_constraintTop_toBottomOf="@+id/button"
+                    app:srcCompat="@drawable/baseline_free_breakfast_black_48"
+                    app:tint="@color/colorOnSecondary" />
+
+                <ImageButton
+                    android:id="@+id/interval_25M"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/touch_feedback"
+                    android:onClick="@{()->fragment.onStart25M()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/pause_timer"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button"
+                    app:srcCompat="@drawable/baseline_work_white_48"
+                    app:tint="@color/colorOnSecondary" />
+
+                <ImageButton
+                    android:id="@+id/pause_timer"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/touch_feedback"
+                    android:onClick="@{()->fragment.onPanTimer()}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/start_break"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/interval_25M"
+                    app:layout_constraintTop_toBottomOf="@+id/button"
+                    app:srcCompat="@drawable/baseline_pan_tool_white_48"
+                    app:tint="@color/colorOnSecondary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

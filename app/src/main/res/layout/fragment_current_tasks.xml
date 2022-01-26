@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.moworks.todolist.currentTasks.CurrentTasksViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="true"
+        android:padding="@dimen/normal_padding"
+        tools:context=".currentTasks.CurrentTasksFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <LinearLayout
+            android:id="@+id/no_tasks_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            app:contentVisibility="@{viewModel.hasTasks}">
+
+            <ImageView
+                android:id="@+id/no_tasks_icon"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/no_tasks_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/empty_task"
+                android:textColor="?colorOnSecondary"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/normal_margin" />
+        </LinearLayout>
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="auto"
+            android:layout_gravity="end|bottom"
+            android:contentDescription="@string/add"
+            app:srcCompat="@drawable/baseline_add_circle_24"
+            android:layout_margin="@dimen/min_margin"
+            app:fabCustomSize="@dimen/fab_custom_size"
+            app:maxImageSize="@dimen/fab_image_size"
+            app:tint="@color/primaryColor"
+            app:backgroundTint="@color/colorOnSecondary"
+            app:pressedTranslationZ="@dimen/small_margin"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
+
+

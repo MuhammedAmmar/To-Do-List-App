@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/currentTasksFragment">
+
+    <fragment
+        android:id="@+id/currentTasksFragment"
+        android:name="com.moworks.todolist.currentTasks.CurrentTasksFragment"
+        tools:layout="@layout/fragment_current_tasks">
+        <action
+            android:id="@+id/action_currentTasksFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_currentTasksFragment_to_editTaskFragment"
+            app:destination="@id/editTaskFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.moworks.todolist.addTask.AddTaskFragment"
+        android:label="New Task"
+        tools:layout="@layout/fragment_add_task" >
+    </fragment>
+    <fragment
+        android:id="@+id/editTaskFragment"
+        android:name="com.moworks.todolist.editTask.EditTaskFragment"
+        android:label="Edit Task"
+        tools:layout="@layout/fragment_edit_task">
+        <argument
+            android:name="taskModel"
+            app:argType="com.moworks.todolist.domain.TaskModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/pomodoroFragment"
+        android:name="com.moworks.todolist.timer.PomodoroFragment"
+        android:label="Pomodoro"
+        app:launchSingleTop="true"
+        tools:layout="@layout/fragment_pomodoro" />
+</navigation>

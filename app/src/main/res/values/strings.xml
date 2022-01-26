@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">To Do List</string>
+
+
+    <string name="edit_text_hint">Enter Quick Task Here</string>
+    <string name="add">add new task</string>
+    <string name="home_title">All Lists</string>
+    <string name="new_task_description_title">What is to be done?</string>
+    <string name="task_editText_hint">Enter Task Here</string>
+    <string name="new_task_date_title">Due date</string>
+
+
+    <string name="date_hint">Set Date</string>
+    <string name="time_hint">Set Time</string>
+    <string name="save">save</string>
+
+    <!--    // TO BE USED -->
+    <string name="date_title_overdue">Overdue</string>
+    <string name="date_title_upcoming">Upcoming</string>
+
+
+    <string name="dialog_action_cancel">CANCEL</string>
+    <string name="dialog_action_yes">YES</string>
+    <string name="dialog_title">Are you sure?</string>
+    <string name="dialog_message">Quit without saving?</string>
+
+
+    <!--    Curren Task Fragment popup labels -->
+    <string name="default_label"> Active Tasks</string>
+    <string name="finished_label">Finished Tasks</string>
+
+
+    <!--    notification utils-->
+    <string name="timer_notification_title">Time\'s Up</string>
+    <string name="timer_notification_text">Well Done, keep going and don\'t forget to take a break"</string>
+    <string name="initial_timer">00:00</string>
+    <string name="reset_the_timer">Reset the timer</string>
+
+    <string name="alarm_message">Some tasks need to be done.</string>
+    <string name="alarm_title">To Do List</string>
+
+    <string name="notification_message_tv"> No notifications if date not set.</string>
+    <string name="search_item">Search</string>
+    <string name="dropdown_title">Task Lists</string>
+
+
+    <!--      pomodoro snakebars -->
+
+    <string name="start_25_timer">Long press to start new period.</string>
+    <string name="pause_timer">Long press to pause timer.</string>
+    <string name="start_break_timer">Long press to start break.</string>
+    <string name="empty_task">Nothing to do</string>
+    <string name="add_describtion_msg">Enter task at first</string>
+
+
+</resources>
+
+

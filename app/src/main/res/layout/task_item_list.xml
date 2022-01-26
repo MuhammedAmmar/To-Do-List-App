@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="taskModel"
+            type="com.moworks.todolist.domain.TaskModel" />
+
+        <variable
+            name="finishedTaskListener"
+            type="com.moworks.todolist.currentTasks.TaskListener" />
+
+        <variable
+            name="updateListener"
+            type="com.moworks.todolist.currentTasks.TaskListener" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/normal_margin"
+        android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:checkable="true"
+        android:onClick="@{()-> updateListener.onClick(taskModel)}"
+        app:cardBackgroundColor="@color/primaryColor">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="?attr/minTouchTargetSize"
+                android:minHeight="?attr/minTouchTargetSize"
+                app:paddingStart="@dimen/min_padding"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:listener="@{finishedTaskListener}"
+                app:task_item="@{taskModel}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/task_description"
+                style="@style/TextLabels.App"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/min_padding"
+                android:text="@{taskModel.taskDescription}"
+                android:textStyle="normal"
+                app:layout_constraintBaseline_creator="@id/checkBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/checkBox"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date_tv"
+                style="@style/TextLabels.App"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:padding="@dimen/min_padding"
+                android:textSize="@dimen/small_text_size"
+                android:textStyle="normal"
+                app:date="@{taskModel}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/checkBox"
+                app:layout_constraintTop_toBottomOf="@id/task_description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</layout>

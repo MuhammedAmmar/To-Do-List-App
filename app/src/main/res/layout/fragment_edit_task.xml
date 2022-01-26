@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.moworks.todolist.editTask.EditTaskViewModel" />
+
+        <variable
+            name="taskModel"
+            type="com.moworks.todolist.domain.TaskModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/medium_padding"
+        android:isScrollContainer="true"
+        tools:context=".editTask.EditTaskFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/min_margin"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/task_title"
+                    style="@style/TextLabels.App"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_padding"
+                    android:text="@string/new_task_description_title"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusTopEnd="15dp"
+                    app:boxBackgroundColor="@android:color/transparent">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/task_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/task_editText_hint"
+                        android:inputType="textMultiLine"
+                        android:textColor="?colorOnSecondary"
+                        android:text="@{viewModel.taskModel.taskDescription}"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <!-- second  section -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date_title"
+                    style="@style/TextLabels.App"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/normal_padding"
+                    android:layout_marginTop="@dimen/spacing_margin"
+                    android:text="@string/new_task_date_title" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/date_edit_text_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/normal_margin"
+                    app:startIconDrawable="@drawable/baseline_event_24"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/baseline_clear_24"
+                    app:endIconCheckable="true"
+                    app:boxCornerRadiusTopEnd="15dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/date_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/date_hint"
+                        android:inputType="none"
+                        android:textColor="?colorOnSecondary"
+                        app:dateUpdate="@{viewModel.taskModel}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/time_edit_text_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:startIconDrawable="@drawable/baseline_schedule_24"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/baseline_clear_24"
+                    app:endIconCheckable="true"
+                    app:isVisible="@{viewModel.timeVisibility}">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/time_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="none"
+                        android:hint="@string/time_hint"
+                        android:textColor="?colorOnSecondary"
+                        app:timeUpdate="@{viewModel.taskModel}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="auto"
+            android:layout_gravity="bottom|end"
+            android:contentDescription="@string/save"
+            app:srcCompat="@drawable/baseline_done_24"
+            android:layout_margin="@dimen/min_margin"
+            app:maxImageSize="@dimen/fab_image_size"
+            app:fabCustomSize="@dimen/fab_custom_size"
+            app:tint="@color/primaryColor"
+            app:backgroundTint="@color/colorOnSecondary"
+            app:pressedTranslationZ="6dp"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
